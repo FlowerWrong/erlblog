@@ -1,132 +1,45 @@
-2015-08-16 00:13:32.088 [info] <0.7.0> Application lager started on node erlblog@yang
-2015-08-16 00:13:32.096 [info] <0.7.0> Application crypto started on node erlblog@yang
-2015-08-16 00:13:32.107 [info] <0.7.0> Application mimetypes started on node erlblog@yang
-2015-08-16 00:13:32.143 [info] <0.95.0> Starting Boss in development mode....
+2015-08-16 00:44:44.345 [info] <0.7.0> Application lager started on node nonode@nohost
+2015-08-16 00:44:44.378 [info] <0.2.0>@boss_load:load_all_modules:57 Loading application erlblog
+2015-08-16 00:44:44.387 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/test/functional/erlblog_test.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
+2015-08-16 00:44:44.427 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_outgoing_mail_controller.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
+2015-08-16 00:44:44.440 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_incoming_mail_controller.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
+2015-08-16 00:44:44.443 [info] <0.2.0>@boss_controller_compiler:compile:59 Compile controller /home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl
+2015-08-16 00:44:44.443 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl" with options [debug_info,{pre_revert_transform,#Fun<boss_controller_compiler.add_routes_to_forms.1>},{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
+2015-08-16 00:44:44.448 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/tag_modules/erlblog_custom_tags.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
+2015-08-16 00:44:44.451 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/filter_modules/erlblog_custom_filters.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
+2015-08-16 00:44:44.454 [info] <0.2.0>@boss_load:compile_view_dir_erlydtl:308 Compile Modules "src/view/lib/tag_html"  erlblog_view_lib_tags
+2015-08-16 00:44:49.371 [info] <0.7.0> Application lager started on node erlblog@yang
+2015-08-16 00:44:49.382 [info] <0.7.0> Application crypto started on node erlblog@yang
+2015-08-16 00:44:49.393 [info] <0.7.0> Application mimetypes started on node erlblog@yang
+2015-08-16 00:44:49.430 [info] <0.95.0> Starting Boss in development mode....
 
-2015-08-16 00:13:32.153 [info] <0.95.0>@boss_db:start:77 Start Database Adapter boss_db_adapter_mock options [{adapter,mock},{cache_enable,false},{cache_prefix,db},{shards,[]},{is_master_node,true},{db_host,"localhost"},{db_port,1978}]
-2015-08-16 00:13:32.212 [info] <0.95.0> Starting master services on erlblog@yang
+2015-08-16 00:44:49.441 [info] <0.95.0>@boss_db:start:77 Start Database Adapter boss_db_adapter_mnesia options [{adapter,mnesia},{cache_enable,false},{cache_prefix,db},{shards,[]},{is_master_node,true},{db_host,"localhost"},{db_port,1978}]
+2015-08-16 00:44:49.542 [notice] <0.63.0>@lager_app:132 Deprecated lager_file_backend config detected, please consider updating it
+2015-08-16 00:44:49.604 [info] <0.7.0> Application mnesia started on node erlblog@yang
+2015-08-16 00:44:49.636 [info] <0.95.0> Starting master services on erlblog@yang
 
-2015-08-16 00:13:32.234 [info] <0.7.0> Application tinymq started on node erlblog@yang
-2015-08-16 00:13:32.263 [info] <0.95.0> SSL:[]
+2015-08-16 00:44:49.650 [info] <0.7.0> Application tinymq started on node erlblog@yang
+2015-08-16 00:44:49.674 [info] <0.95.0> SSL:[]
 
-2015-08-16 00:13:32.266 [info] <0.95.0> Starting cowboy... on erlblog@yang
+2015-08-16 00:44:49.677 [info] <0.95.0> Starting cowboy... on erlblog@yang
 
-2015-08-16 00:13:32.269 [info] <0.7.0> Application cowlib started on node erlblog@yang
-2015-08-16 00:13:32.270 [notice] <0.63.0>@lager_app:132 Deprecated lager_file_backend config detected, please consider updating it
-2015-08-16 00:13:32.273 [info] <0.7.0> Application ranch started on node erlblog@yang
-2015-08-16 00:13:32.285 [info] <0.7.0> Application cowboy started on node erlblog@yang
-2015-08-16 00:13:32.285 [info] <0.95.0> Starting http listener... on 0.0.0.0:8001 
+2015-08-16 00:44:49.680 [info] <0.7.0> Application cowlib started on node erlblog@yang
+2015-08-16 00:44:49.685 [info] <0.7.0> Application ranch started on node erlblog@yang
+2015-08-16 00:44:49.695 [info] <0.7.0> Application cowboy started on node erlblog@yang
+2015-08-16 00:44:49.695 [info] <0.95.0> Starting http listener... on 0.0.0.0:8001 
 
-2015-08-16 00:13:32.342 [info] <0.95.0>@boss_load:load_all_modules:57 Loading application erlblog
-2015-08-16 00:13:32.357 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_outgoing_mail_controller.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:13:32.388 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_incoming_mail_controller.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:13:32.399 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/tag_modules/erlblog_custom_tags.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:13:32.410 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/filter_modules/erlblog_custom_filters.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:13:32.412 [info] <0.95.0>@boss_load:compile_view_dir_erlydtl:308 Compile Modules "src/view/lib/tag_html"  erlblog_view_lib_tags
-2015-08-16 00:13:32.473 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/priv/init/erlblog_01_news.erl" with options [{include_dirs,["/home/yang/dev/erlang/erlblog/include"]}] 
-2015-08-16 00:15:49.049 [info] <0.7.0> Application lager started on node erlblog@yang
-2015-08-16 00:15:49.058 [info] <0.7.0> Application crypto started on node erlblog@yang
-2015-08-16 00:15:49.069 [info] <0.7.0> Application mimetypes started on node erlblog@yang
-2015-08-16 00:15:49.104 [info] <0.95.0> Starting Boss in development mode....
-
-2015-08-16 00:15:49.113 [info] <0.95.0>@boss_db:start:77 Start Database Adapter boss_db_adapter_mock options [{adapter,mock},{cache_enable,false},{cache_prefix,db},{shards,[]},{is_master_node,true},{db_host,"localhost"},{db_port,1978}]
-2015-08-16 00:15:49.151 [info] <0.95.0> Starting master services on erlblog@yang
-
-2015-08-16 00:15:49.163 [info] <0.7.0> Application tinymq started on node erlblog@yang
-2015-08-16 00:15:49.187 [info] <0.95.0> SSL:[]
-
-2015-08-16 00:15:49.190 [info] <0.95.0> Starting cowboy... on erlblog@yang
-
-2015-08-16 00:15:49.196 [info] <0.7.0> Application cowlib started on node erlblog@yang
-2015-08-16 00:15:49.200 [info] <0.7.0> Application ranch started on node erlblog@yang
-2015-08-16 00:15:49.210 [info] <0.7.0> Application cowboy started on node erlblog@yang
-2015-08-16 00:15:49.210 [info] <0.95.0> Starting http listener... on 0.0.0.0:8001 
-
-2015-08-16 00:15:49.238 [notice] <0.63.0>@lager_app:132 Deprecated lager_file_backend config detected, please consider updating it
-2015-08-16 00:15:49.267 [info] <0.95.0>@boss_load:load_all_modules:57 Loading application erlblog
-2015-08-16 00:15:49.281 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_outgoing_mail_controller.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:15:49.310 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_incoming_mail_controller.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:15:49.327 [info] <0.95.0>@boss_controller_compiler:compile:59 Compile controller /home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl
-2015-08-16 00:15:49.327 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl" with options [debug_info,{pre_revert_transform,#Fun<boss_controller_compiler.add_routes_to_forms.1>},{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:15:49.342 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/tag_modules/erlblog_custom_tags.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:15:49.354 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/filter_modules/erlblog_custom_filters.erl" with options [{out_dir,undefined},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:15:49.356 [info] <0.95.0>@boss_load:compile_view_dir_erlydtl:308 Compile Modules "src/view/lib/tag_html"  erlblog_view_lib_tags
-2015-08-16 00:15:49.414 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/priv/init/erlblog_01_news.erl" with options [{include_dirs,["/home/yang/dev/erlang/erlblog/include"]}] 
-2015-08-16 00:15:59.929 [notice] <0.273.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
-2015-08-16 00:15:59.932 [warning] <0.6.0> lager_error_logger_h dropped 33 messages in the last second that exceeded the limit of 50 messages/sec
-2015-08-16 00:15:59.933 [info] <0.262.0> Loading routes from "/home/yang/dev/erlang/erlblog/priv/erlblog.routes" ....
-2015-08-16 00:15:59.933 [info] <0.273.0> Route: "/greeting/hello"Url
+2015-08-16 00:44:49.748 [info] <0.95.0>@boss_load:load_all_modules:57 Loading application erlblog
+2015-08-16 00:44:49.780 [info] <0.95.0>@boss_load:compile_view_dir_erlydtl:308 Compile Modules "src/view/lib/tag_html"  erlblog_view_lib_tags
+2015-08-16 00:44:49.842 [notice] <0.95.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/priv/init/erlblog_01_news.erl" with options [{include_dirs,["/home/yang/dev/erlang/erlblog/include"]}] 
+2015-08-16 00:44:54.476 [notice] <0.283.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
+2015-08-16 00:44:54.480 [warning] <0.6.0> lager_error_logger_h dropped 73 messages in the last second that exceeded the limit of 50 messages/sec
+2015-08-16 00:44:54.480 [info] <0.277.0> Loading routes from "/home/yang/dev/erlang/erlblog/priv/erlblog.routes" ....
+2015-08-16 00:44:54.481 [info] <0.283.0> Route: "/admin"Url
 []
-2015-08-16 00:15:59.937 [warning] <0.273.0> GET /greeting/hello [erlblog] 404 4ms
-2015-08-16 00:16:00.050 [notice] <0.275.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
-2015-08-16 00:16:05.756 [notice] <0.277.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
-2015-08-16 00:16:05.758 [info] <0.262.0> Loading routes from "/home/yang/dev/erlang/erlblog/priv/erlblog.routes" ....
-2015-08-16 00:16:05.759 [info] <0.277.0> Route: "/welcome/hello"Url
+2015-08-16 00:44:54.485 [warning] <0.283.0> GET /admin [erlblog] 404 5ms
+2015-08-16 00:45:01.327 [notice] <0.285.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
+2015-08-16 00:45:01.327 [info] <0.277.0> Loading routes from "/home/yang/dev/erlang/erlblog/priv/erlblog.routes" ....
+2015-08-16 00:45:01.329 [info] <0.285.0> Route: "/welcome/hello"Url
 []
-2015-08-16 00:16:05.783 [notice] <0.277.0>@boss_controller_adapter_pmod:action:91 Request Method: 'GET', Tokens: []
-2015-08-16 00:16:05.790 [info] <0.277.0> GET /welcome/hello [erlblog] 200 32ms
-2015-08-16 00:17:35.683 [info] <0.7.0> Application lager started on node nonode@nohost
-2015-08-16 00:17:35.717 [info] <0.2.0>@boss_load:load_all_modules:57 Loading application erlblog
-2015-08-16 00:17:35.717 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/test/functional/erlblog_test.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:35.720 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_outgoing_mail_controller.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:35.735 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_incoming_mail_controller.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:35.737 [info] <0.2.0>@boss_controller_compiler:compile:59 Compile controller /home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl
-2015-08-16 00:17:35.738 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl" with options [debug_info,{pre_revert_transform,#Fun<boss_controller_compiler.add_routes_to_forms.1>},{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:35.742 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/tag_modules/erlblog_custom_tags.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:35.745 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/filter_modules/erlblog_custom_filters.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:35.747 [info] <0.2.0>@boss_load:compile_view_dir_erlydtl:308 Compile Modules "src/view/lib/tag_html"  erlblog_view_lib_tags
-2015-08-16 00:17:42.519 [info] <0.7.0> Application lager started on node nonode@nohost
-2015-08-16 00:17:42.552 [info] <0.2.0>@boss_load:load_all_modules:57 Loading application erlblog
-2015-08-16 00:17:42.574 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/test/functional/erlblog_test.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:42.614 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_outgoing_mail_controller.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:42.627 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/mail/erlblog_incoming_mail_controller.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:42.630 [info] <0.2.0>@boss_controller_compiler:compile:59 Compile controller /home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl
-2015-08-16 00:17:42.630 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/controller/erlblog_welcome_controller.erl" with options [debug_info,{pre_revert_transform,#Fun<boss_controller_compiler.add_routes_to_forms.1>},{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:42.633 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/tag_modules/erlblog_custom_tags.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:42.635 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/src/view/lib/filter_modules/erlblog_custom_filters.erl" with options [{out_dir,"ebin"},{include_dirs,["/home/yang/dev/erlang/erlblog/include"]},{compiler_options,[{parse_transform,lager_transform},return_errors]}] 
-2015-08-16 00:17:42.637 [info] <0.2.0>@boss_load:compile_view_dir_erlydtl:308 Compile Modules "src/view/lib/tag_html"  erlblog_view_lib_tags
-2015-08-16 00:17:42.777 [info] <0.7.0> Application erlblog started on node nonode@nohost
-2015-08-16 00:17:42.777 [info] <0.174.0> Loading routes from "/home/yang/dev/erlang/erlblog/priv/erlblog.routes" ....
-2015-08-16 00:17:42.788 [info] <0.2.0>@boss_db:start:77 Start Database Adapter boss_db_adapter_mock options [{adapter,mock}]
-2015-08-16 00:17:42.858 [info] <0.7.0> Application tinymq started on node nonode@nohost
-2015-08-16 00:17:42.859 [notice] <0.2.0>@boss_compiler:compile:47 Compile file "/home/yang/dev/erlang/erlblog/priv/init/erlblog_01_news.erl" with options [{include_dirs,["/home/yang/dev/erlang/erlblog/include"]}] 
-2015-08-16 00:17:42.890 [info] <0.2.0>@boss_load:load_all_modules:57 Loading application erlblog
-2015-08-16 00:17:42.891 [info] <0.2.0>@boss_load:compile_view_dir_erlydtl:308 Compile Modules "src/view/lib/tag_html"  erlblog_view_lib_tags
-2015-08-16 00:17:42.950 [info] <0.229.0> Route: "/welcome/hello"Url
-[]
-2015-08-16 00:17:42.950 [notice] <0.229.0>@boss_controller_adapter_pmod:action:91 Request Method: 'GET', Tokens: []
-2015-08-16 00:17:42.959 [notice] <0.138.0>@lager_app:132 Deprecated lager_file_backend config detected, please consider updating it
-2015-08-16 00:18:07.397 [info] <0.7.0> Application lager started on node erlblog@yang
-2015-08-16 00:18:07.414 [info] <0.56.0> Starting Boss in production mode....
-
-2015-08-16 00:18:07.424 [info] <0.56.0>@boss_db:start:77 Start Database Adapter boss_db_adapter_mock options [{adapter,mock},{cache_enable,false},{cache_prefix,db},{shards,[]},{is_master_node,true},{db_host,"localhost"},{db_port,1978}]
-2015-08-16 00:18:07.460 [info] <0.56.0> Starting master services on erlblog@yang
-
-2015-08-16 00:18:07.473 [info] <0.7.0> Application tinymq started on node erlblog@yang
-2015-08-16 00:18:07.494 [info] <0.56.0> SSL:[]
-
-2015-08-16 00:18:07.497 [info] <0.56.0> Starting cowboy... on erlblog@yang
-
-2015-08-16 00:18:07.500 [info] <0.7.0> Application cowlib started on node erlblog@yang
-2015-08-16 00:18:07.503 [info] <0.7.0> Application ranch started on node erlblog@yang
-2015-08-16 00:18:07.513 [info] <0.7.0> Application cowboy started on node erlblog@yang
-2015-08-16 00:18:07.513 [info] <0.56.0> Starting http listener... on 0.0.0.0:8001 
-
-2015-08-16 00:18:07.557 [notice] <0.56.0>@boss_compiler:compile:47 Compile file "../erlblog/priv/init/erlblog_01_news.erl" with options [{include_dirs,["/home/yang/dev/erlang/erlblog/include"]}] 
-2015-08-16 00:18:07.561 [notice] <0.68.0>@lager_app:132 Deprecated lager_file_backend config detected, please consider updating it
-2015-08-16 00:18:12.418 [notice] <0.262.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
-2015-08-16 00:18:12.421 [warning] <0.6.0> lager_error_logger_h dropped 78 messages in the last second that exceeded the limit of 50 messages/sec
-2015-08-16 00:18:12.421 [info] <0.262.0> Route: "/welcome/hello"Url
-[]
-2015-08-16 00:18:12.441 [notice] <0.262.0>@boss_controller_adapter_pmod:action:91 Request Method: 'GET', Tokens: []
-2015-08-16 00:18:12.446 [info] <0.262.0> GET /welcome/hello [erlblog] 200 25ms
-2015-08-16 00:18:13.231 [notice] <0.263.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
-2015-08-16 00:18:13.232 [info] <0.263.0> Route: "/welcome/hello"Url
-[]
-2015-08-16 00:18:13.234 [notice] <0.263.0>@boss_controller_adapter_pmod:action:91 Request Method: 'GET', Tokens: []
-2015-08-16 00:18:13.236 [info] <0.263.0> GET /welcome/hello [erlblog] 200 4ms
-2015-08-16 00:18:14.156 [notice] <0.264.0>@boss_web_controller_handle_request:handle_request:23 ApplicationForPath erlblog
-2015-08-16 00:18:14.156 [info] <0.264.0> Route: "/welcome/hello"Url
-[]
-2015-08-16 00:18:14.158 [notice] <0.264.0>@boss_controller_adapter_pmod:action:91 Request Method: 'GET', Tokens: []
-2015-08-16 00:18:14.160 [info] <0.264.0> GET /welcome/hello [erlblog] 200 3ms
+2015-08-16 00:45:01.351 [notice] <0.285.0>@boss_controller_adapter_pmod:action:91 Request Method: 'GET', Tokens: []
+2015-08-16 00:45:01.357 [info] <0.285.0> GET /welcome/hello [erlblog] 200 30ms
