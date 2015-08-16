@@ -6,6 +6,9 @@ start: get-deps compile compile-ts lint-scss compile-scss start-dev
 compile-ts:
 	tsc ./priv/static/javascripts/*.ts
 
+lint-ts:
+	tslint ./priv/static/javascripts/*.ts
+
 compile-scss:
 	sass ./priv/static/stylesheets/*.scss ./priv/static/stylesheets/style.css
 

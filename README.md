@@ -11,6 +11,7 @@
 
 ```ruby
 npm install -g typescript
+npm install -g tslint
 bundle install
 
 git clone git@github.com:FlowerWrong/erlblog.git
