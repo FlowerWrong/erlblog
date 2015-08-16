@@ -21,6 +21,8 @@ curl -i -X PUT -d "image=/static/chicago-boss.png&title=title_update1&content=co
 curl -i -X GET 'http://127.0.0.1:8001/posts/post-1'
 
 curl -i -X DELETE 'http://127.0.0.1:8001/posts/post-1/delete'
+
+curl -i -X POST -F "image=@/home/yang/dev/erlang/erlblog/priv/static/chicago-boss.png" 'http://127.0.0.1:8001/uploader'
 ```
 
 #### Usage

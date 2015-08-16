@@ -100,8 +100,10 @@ delete('DELETE', [Id]) ->
 %%
 uploader('POST', []) ->
   [{sb_uploaded_file, FileName, TempLocation, _Size, _Type, _}] = Req:post_files(),
-  Fname = "./priv/static/uploader/" ++ FileName,
+  Uuid = uuid:to_string(uuid:uuid1()),
+  Ext = filename:extension(FileName),
+  Fname = "./priv/static/uploader/" ++ Uuid ++ Ext,
   file:copy(TempLocation, Fname),
   file:delete(TempLocation),
-  Url = "/static/uploader/" ++ FileName,
+  Url = "/static/uploader/" ++ Uuid ++ Ext,
   {json, [{url, Url}]}.
