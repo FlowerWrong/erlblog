@@ -7,10 +7,12 @@
   <div id="primary">
     <div id="content" role="main">
       <form method="post" action="/uploader" enctype="multipart/form-data">
-        <input type="file" name="image" value="请上传图片" />
+        <input id="fileupload" type="file" name="file" value="请上传图片" />
+        <input type="hidden" name="image" value="" />
         <input type="submit" value="submit" />
       </form>
 
+      <!-- ace editor -->
       <div id="editor">## Readme</div>
       <script src="/static/plugins/ace1.2.0/ace.js" type="text/javascript" charset="utf-8"></script>
       <script>
@@ -22,6 +24,27 @@
           console.log(e);
         });
       </script>
+
+      <!-- jquery file uploader -->
+      <script src="/static/plugins/jquery_file_upload9.11.0/vendor/jquery.ui.widget.js"></script>
+      <script src="/static/plugins/jquery_file_upload9.11.0/jquery.iframe-transport.js"></script>
+      <script src="/static/plugins/jquery_file_upload9.11.0/jquery.fileupload.js"></script>
+      <script>
+      $(function () {
+        $('#fileupload').fileupload({
+          url: '/uploader',
+          dataType: 'json',
+          done: function (e, data) {
+            console.dir(data);
+            $(".img-view img").attr('src', data.result.url);
+          }
+        });
+      });
+      </script>
+
+      <div class="img-view">
+        <img src="">
+      </div>
     </div><!-- #content .site-content -->
   </div><!-- #primary .content-area -->
 </div><!-- / container-->

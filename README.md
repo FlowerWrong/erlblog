@@ -10,6 +10,7 @@
 * [theme](http://lessmade.com/themes/less/)
 * [jquery 2](http://jquery.com/)
 * [ace editor](https://github.com/ajaxorg/ace-builds)
+* [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload)
 
 #### Curl test
 
