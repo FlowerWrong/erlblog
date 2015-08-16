@@ -1,15 +1,24 @@
 # Database design of erlblog.
+DROP DATABASE IF EXISTS `erlblog`;
 CREATE DATABASE IF NOT EXISTS `erlblog` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `erlblog`;
 
 SET FOREIGN_KEY_CHECKS=0;
 
+DROP TABLE IF EXISTS counters;
 DROP TABLE IF EXISTS authors;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS post_tags;
 
 SET FOREIGN_KEY_CHECKS=1;
+
+
+# Counter features
+CREATE TABLE counters (
+  name VARCHAR(255) PRIMARY KEY,
+  value INTEGER DEFAULT 0
+);
 
 
 CREATE TABLE authors (
