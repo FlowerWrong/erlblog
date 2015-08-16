@@ -8,6 +8,18 @@
 * [scss](http://sass-lang.com/)
 * [theme](http://lessmade.com/themes/less/)
 
+#### Curl test
+
+```ruby
+curl -i -X POST -d "image=/static/chicago-boss.png&title=title1&content=content1&author_id=1" 'http://127.0.0.1:8001/posts/create'
+
+curl -i -X PUT -d "image=/static/chicago-boss.png&title=title_update1&content=contentupdate1&author_id=1" 'http://127.0.0.1:8001/posts/post-1/update'
+
+curl -i -X GET 'http://127.0.0.1:8001/posts/post-1'
+
+curl -i -X DELETE 'http://127.0.0.1:8001/posts/post-1/delete'
+```
+
 #### Usage
 
 ```ruby

@@ -17,14 +17,14 @@ posts('GET', []) ->
 %% POST blog
 %%
 create('POST', []) ->
+  Image = Req:post_param("image"),
 	Title = Req:post_param("title"),
   Summary = Req:post_param("title"),
 	Content = Req:post_param("content"),
   Markdown = Req:post_param("content"),
 	AuthorId = Req:post_param("author_id"),
 	CreatedAt = erlang:now(),
-	NewPost = post:new(id, Title, Summary, Content, Markdown, AuthorId),
-  io:format("~p~n", [NewPost]),
+	NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
 	case NewPost:save() of
 		{ok, SavedPost}->
 			{json, [{post, SavedPost}]};
@@ -40,12 +40,14 @@ create('POST', []) ->
 %%
 update('PUT', [Id]) ->
   Post = boss_db:find(Id),
+  Image = Req:post_param("image"),
 	Title = Req:post_param("title"),
   Summary = Req:post_param("title"),
 	Content = Req:post_param("content"),
   Markdown = Req:post_param("content"),
 	AuthorId = Req:post_param("author_id"),
   NewPost = Post:set([
+    {image, Image},
     {title, Title},
     {summary, Summary},
     {content, Content},
@@ -54,7 +56,6 @@ update('PUT', [Id]) ->
   ]),
 	case NewPost:save() of
 		{ok, SavedPost}->
-      io:format("~p~n", [SavedPost]),
 			{json, [{post, SavedPost}]};
 		{error, Reason}->
       {json, [{error, Reason}]}
@@ -66,7 +67,6 @@ update('PUT', [Id]) ->
 %%
 %% GET post
 show('GET', [Id]) ->
-  io:format("~p~n", [Id]),
   Post = boss_db:find(Id),
   {ok, [{post, Post}]}.
 
@@ -77,7 +77,6 @@ show('GET', [Id]) ->
 %% DELETE blog
 %%
 delete('DELETE', [Id]) ->
-  io:format("~p~n", [Id]),
 	case boss_db:delete(Id) of
 		ok->
 			{json, [{msg, "ok"}]};
