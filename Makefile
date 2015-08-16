@@ -1,8 +1,18 @@
 REBAR := rebar
 .DEFAULT_GOAL = start
 
-start:
-	$(REBAR) compile
+start: get-deps compile compile-ts lint-scss compile-scss start-dev
+
+compile-ts:
+	tsc ./priv/static/javascripts/*.ts
+
+compile-scss:
+	sass ./priv/static/stylesheets/*.scss ./priv/static/stylesheets/style.css
+
+lint-scss:
+	scss-lint ./priv/static/stylesheets/
+
+start-dev:
 	./init-dev.sh
 
 all: get-deps compile compile-app
