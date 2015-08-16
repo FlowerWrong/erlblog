@@ -34,6 +34,9 @@ curl -i -X POST -F "image=@/home/yang/dev/erlang/erlblog/priv/static/chicago-bos
 git clone git@github.com:FlowerWrong/erlblog.git
 cd erlblog
 
+npm install -g bower
+bower install
+
 # Install scss, typescript lint and compile tools.
 npm install -g typescript
 npm install -g tslint

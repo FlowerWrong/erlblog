@@ -1,0 +1,29 @@
+{
+  "name": "erlblog",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FlowerWrong/erlblog",
+  "authors": [
+    "yang <sysuyangkang@gmail.com>"
+  ],
+  "description": "erlblog plugin management",
+  "keywords": [
+    "erlang",
+    "blog"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "priv/static/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "marked": "~0.3.5",
+    "highlightjs": "~8.7.0",
+    "blueimp-file-upload": "~9.11.0",
+    "fitvids": "~1.1.0"
+  }
+}

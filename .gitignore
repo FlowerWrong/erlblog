@@ -7,6 +7,8 @@ ebin/
 /priv/static/uploader/*.jpg
 /priv/static/uploader/*.jpeg
 
+priv/static/components/
+
 *.log
 console.log
 crash.log
