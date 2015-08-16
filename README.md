@@ -10,12 +10,15 @@
 #### Usage
 
 ```ruby
+git clone git@github.com:FlowerWrong/erlblog.git
+cd erlblog
+
+# Install scss, typescript lint and compile tools.
 npm install -g typescript
 npm install -g tslint
 bundle install
 
-git clone git@github.com:FlowerWrong/erlblog.git
-cd erlblog
+# Install rebar, following up link.
 rebar -h
 rebar g-d
 rebar compile
