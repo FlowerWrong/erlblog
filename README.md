@@ -17,6 +17,7 @@ rebar compile
 
 # test
 rebar boss c=test_functional
+rebar boss c=test_eunit
 
 # dev server
 ./init-dev.sh
