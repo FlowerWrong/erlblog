@@ -1,4 +1,9 @@
-REBAR := ./rebar
+REBAR := rebar
+.DEFAULT_GOAL = start
+
+start:
+	$(REBAR) compile
+	./init-dev.sh
 
 all: get-deps compile compile-app
 
@@ -10,7 +15,7 @@ compile:
 
 compile-app:
 	$(REBAR) boss c=compile
-	
+
 test:
 	$(REBAR) boss c=test_functional
 

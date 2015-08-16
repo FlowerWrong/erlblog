@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>{% block title %}blogs!{% endblock %}</title>
+</head>
+<body>
+{% block body %}
+
+{% if post %}
+  <a href="/posts/{{ post.id }}">{{ post.title }}</a>
+{% else %}
+  <h1>No posts!</h1>
+{% endif %}
+
+{% endblock %}
+</body>
+</html>

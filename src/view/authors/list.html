@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>{% block title %}authors!{% endblock %}</title>
+</head>
+<body>
+{% block body %}
+<ul>
+{% if authors %}
+  {% for author in authors %}
+    <li>{{ author.username }}
+  {% endfor %}
+{% else %}
+    <li>No authors!
+{% endif %}
+</ul>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,2 @@
+-module(author, [Id, Username, Password]).
+-compile(export_all).
