@@ -8,6 +8,8 @@
 * [scss](http://sass-lang.com/)
 * [less](http://lesscss.org/)
 * [theme](http://lessmade.com/themes/less/)
+* [jquery 2](http://jquery.com/)
+* [ace editor](https://github.com/ajaxorg/ace-builds)
 
 #### Curl test
 
