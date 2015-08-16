@@ -13,6 +13,7 @@
 * [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload)
 * [marked js](https://github.com/chjj/marked)
 * [Highlightjs](https://highlightjs.org)
+* [react](https://github.com/facebook/react)
 
 #### Curl test
 

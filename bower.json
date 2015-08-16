@@ -24,6 +24,7 @@
     "marked": "~0.3.5",
     "highlightjs": "~8.7.0",
     "blueimp-file-upload": "~9.11.0",
-    "fitvids": "~1.1.0"
+    "fitvids": "~1.1.0",
+    "react": "~0.13.3"
   }
 }
