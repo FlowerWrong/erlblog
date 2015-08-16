@@ -1,2 +1,2 @@
--module(author, [Id, Username, Password]).
+-module(author, [Id, Username, Password, Avatar]).
 -compile(export_all).

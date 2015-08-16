@@ -25,10 +25,11 @@ CREATE TABLE authors (
   id MEDIUMINT NOT NULL AUTO_INCREMENT,
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
+  avatar VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO authors (username, password) VALUES('yangfusheng', '123456');
+INSERT INTO authors (username, password, avatar) VALUES('yangfusheng', '123456', 'https://www.4008-517-517.cn/cn/static/1438099935002/assets/86/img/mcdelivery_logo_zh.jpg');
 
 
 CREATE TABLE posts (

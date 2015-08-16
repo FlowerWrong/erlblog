@@ -29,6 +29,7 @@ cd erlblog
 # Install scss, typescript lint and compile tools.
 npm install -g typescript
 npm install -g tslint
+npm install -g less
 bundle install
 
 # Install rebar, following up link.

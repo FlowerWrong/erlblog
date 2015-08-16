@@ -1,13 +1,16 @@
 REBAR := rebar
 .DEFAULT_GOAL = start
 
-start: get-deps compile lint-ts compile-ts lint-scss compile-scss start-dev
+start: get-deps compile lint-ts compile-ts compile-less start-dev
 
 compile-ts:
 	tsc ./priv/static/javascripts/*.ts
 
 lint-ts:
 	tslint ./priv/static/javascripts/*.ts
+
+compile-less:
+	lessc ./priv/static/stylesheets/style.less ./priv/static/stylesheets/style.css
 
 compile-scss:
 	sass ./priv/static/stylesheets/*.scss ./priv/static/stylesheets/style.css
