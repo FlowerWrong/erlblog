@@ -1,6 +1,7 @@
 deps/
 ebin/
 
+*.log
 console.log
 crash.log
 error.log
