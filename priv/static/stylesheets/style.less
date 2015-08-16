@@ -1,88 +1,70 @@
 /* LESS variables - Change the look of your site simply.
 -------------------------------------------------------------- */
 
-	// Site Colors
-	// -----------------------
+// Site Colors
+// -----------------------
 
-	// Main
-	@primary:			#343434;
-	@secondary:			#007998;
+// Main
+@primary: #343434;
+@secondary:	#007998;
 
-	// Shades
-	@dark:				#101010;
-	@grey:				#565656;
-	@light-grey:		#888888;
-	@off-white:			#f8f8f8;
+// Shades
+@dark: #101010;
+@grey: #565656;
+@light-grey: #888888;
+@off-white: #f8f8f8;
 
-	// Site background
-	@site-bg:			#fff;
-
-	// Header background
-	@header-bg:			transparent;
-
-	// Post Background
-	@post-bg:			transparent;
-
-	// Footer background
-	@footer-bg:			#ffffff;
-
-	// Border colors
-	@border-color:		#dddddd;
+// Site background
+@site-bg:	#fff;
+// Header background
+@header-bg: transparent;
+// Post Background
+@post-bg:	 transparent;
+// Footer background
+@footer-bg: #ffffff;
+// Border colors
+@border-color: #dddddd;
 
 
+// Typography
+// ----------------------
 
-	// Typography
-	// ----------------------
+// if you want to use a webfont from gooogle or something
+// @import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
 
-	// if you want to use a webfont from gooogle or something
-	// @import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
-
-	// Body Font family
-	@body-font:		"Helvetica Neue", Helvetica, Arial, sans-serif;
-
-	// Heading font family
-	@heading-font:	"Arvo", Georgia, serif;
-
-	// Site name size
-	@site-text-size:	16;
-
-	// Body text size
-	@body-text-size:	18;
-
-	// Title text size
-	@title-text-size:	38;
-
-	// Site name color
-	@site-name-color:	@grey;
-
-	// Site heading color
-	@headinng-color:	#404040;
-
-	// Site Text color
-	@text-color:		#787878;
-
-	// Link colors
-	@link-color:		@secondary;
+// Body Font family
+@body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// Heading font family
+@heading-font: "Arvo", Georgia, serif;
+// Site name size
+@site-text-size: 16;
+// Body text size
+@body-text-size: 18;
+// Title text size
+@title-text-size: 38;
+// Site name color
+@site-name-color:	@grey;
+// Site heading color
+@headinng-color: #404040;
+// Site Text color
+@text-color: #787878;
+// Link colors
+@link-color: @secondary;
 
 
+// Site Structure
+// ---------------------
 
-	// Site Structure
-	// ---------------------
-
-	// Header padding
-	@header-padding:	20px 0;
-
-	// main Wrapper width (effects your post width)
-	@container:			720px;
-
-	// post/article padding
-	@post-padding:		0;
-
-	// footer width
-	@footer-width:		100%;
-
-	// Margin (used for top or bottom of most elements
-	@margin:			40px;
+// Header padding
+@header-padding: 20px 0;
+// main Wrapper width (effects your post width)
+@container: 720px;
+// post/article padding
+@post-padding: 0;
+// footer width
+@footer-width: 100%;
+// Margin (used for top or bottom of most elements
+@margin: 40px;
 
 
 @import "reset";
@@ -108,12 +90,7 @@ select {
 
 
 /* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	font-family: @heading-font;
 }
@@ -267,9 +244,7 @@ header {
 				color: @light-grey;
 				text-transform: lowercase;
 			}
-
 		}// h1
-
 	}// #brand
 
 	nav {
@@ -289,9 +264,7 @@ header {
 					}
 				}
 			} // ul
-
 	}// nav
-
 }// header
 
 .container {
@@ -323,7 +296,6 @@ article {
 				color: @secondary;
 			}
 		}// a
-
 	}// title
 
 	.post-meta {
@@ -338,11 +310,9 @@ article {
 				color: fade(@light-grey, 50%);
 			}
 		}
-
 	}
 
 	.the-content {
-
 		a {
 			font-weight: 900;
 			text-decoration: none;
@@ -356,8 +326,6 @@ article {
 			width: 100%;
 			height: auto;
 		}
-
-
 	}// the-content
 
 	.meta {
@@ -377,11 +345,8 @@ article {
 					display: inline-block;
 					margin-right: 10px;
 				}
-
 		}// post-categories
-
 	}// meta
-
 }//article
 
 /* Page loop styling */
@@ -392,7 +357,6 @@ article {
 	.title {
 		margin-bottom: @margin;
 	}
-
 }// .page article
 
 
@@ -408,7 +372,6 @@ article {
 	.next-page {
 		float: left;
 	}
-
 }// pagination
 
 
@@ -450,9 +413,7 @@ h3#comments {
 		.says {
 			display: none;
 		}
-
 	}// comment-author
-
 }//commentlist
 
 // Jetpack
@@ -478,14 +439,12 @@ h3#comments {
 	form label {
 		color: @light-grey;
 	}
-
 }// respond
 
 footer {
 	text-align: center;
 	padding-bottom: 40px;
 	font-size: 12px;
-
 }// footer
 
 
@@ -496,7 +455,6 @@ footer {
 /* Jetpack Gallery */
 
 .gallery {
-
 	.gallery-item {
 		margin-top: 0 !important;
 	}
@@ -559,7 +517,6 @@ html[xmlns] .clearfix {
 -------------------------------------------------------------- */
 
 @media (max-width: 767px) {
-
 	header {
 		padding: 0;
 
@@ -570,7 +527,5 @@ html[xmlns] .clearfix {
 		hgroup {
 			width: 100%;
 		}
-
 	}//header
-
 } // max-width 767px
