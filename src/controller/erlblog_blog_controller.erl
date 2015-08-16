@@ -1,15 +1,25 @@
 -module(erlblog_blog_controller, [Req]).
 -compile(export_all).
 
+
 %%
-%% Posts
+%% 博客首页
 %%
-%% GET posts
-%%
-posts('GET', []) ->
+index('GET', []) ->
   Posts = boss_db:find(post, []),
   {ok, [{posts, Posts}]}.
 
+%%
+%% 关于我们
+%%
+about('GET', []) ->
+  {ok, [{msg, "About Us"}]}.
+
+%%
+%% 设计
+%%
+design('GET', []) ->
+  {ok, [{msg, "Design"}]}.
 
 %%
 %% Post

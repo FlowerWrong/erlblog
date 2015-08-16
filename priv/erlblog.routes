@@ -1,7 +1,10 @@
 % Routes file.
 % https://github.com/ChicagoBoss/ChicagoBoss/wiki/Routes
 
-{"/posts", [{controller, "blog"}, {action, "posts"}]}.
+{"/", [{controller, "blog"}, {action, "index"}]}.
+{"/about", [{controller, "blog"}, {action, "about"}]}.
+{"/design", [{controller, "blog"}, {action, "design"}]}.
+
 {"/posts/new", [{controller, "blog"}, {action, "new"}]}.
 {"/posts/create", [{controller, "blog"}, {action, "create"}]}.
 {"/posts/(post\\-\\d)/edit", [{controller, "blog"}, {action, "edit"}, {id, '$1'}]}.

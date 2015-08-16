@@ -1,15 +1,16 @@
-<html>
-<head>
-  <title>{% block title %}blogs!{% endblock %}</title>
-</head>
-<body>
+{% extends "layout/posts.html" %}
+
+{% block title %}新建博客{% endblock %}
+
 {% block body %}
-
-<form method="post" action="/uploader" enctype="multipart/form-data">
-  <input type="file" name="image" value="请上传图片" />
-  <input type="submit" value="submit" />
-</form>
-
+<div class="container">
+  <div id="primary">
+    <div id="content" role="main">
+      <form method="post" action="/uploader" enctype="multipart/form-data">
+        <input type="file" name="image" value="请上传图片" />
+        <input type="submit" value="submit" />
+      </form>
+    </div><!-- #content .site-content -->
+  </div><!-- #primary .content-area -->
+</div><!-- / container-->
 {% endblock %}
-</body>
-</html>

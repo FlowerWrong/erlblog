@@ -1,16 +1,17 @@
-<html>
-<head>
-  <title>{% block title %}blogs!{% endblock %}</title>
-</head>
-<body>
+{% extends "layout/posts.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
 {% block body %}
-
-{% if post %}
-  <a href="/posts/{{ post.id }}">{{ post.title }}</a>
-{% else %}
-  <h1>No posts!</h1>
-{% endif %}
-
+<div class="container">
+  <div id="primary">
+    <div id="content" role="main">
+      {% if post %}
+        <a href="/posts/{{ post.id }}">{{ post.title }}</a>
+      {% else %}
+        <h1>No posts!</h1>
+      {% endif %}
+    </div><!-- #content .site-content -->
+  </div><!-- #primary .content-area -->
+</div><!-- / container-->
 {% endblock %}
-</body>
-</html>

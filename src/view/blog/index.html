@@ -1,0 +1,49 @@
+{% extends "layout/posts.html" %}
+
+{% block title %}博客首页{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div id="primary">
+    <div id="content" role="main">
+      {% if posts %}
+      {% for p in posts %}
+      <article class="post">
+        <h1 class="title">
+          <a href="/posts/{{ p.id }}" title="{{ p.title }}">{{ p.title }}</a>
+        </h1>
+        <div class="post-meta"></div><!--/post-meta -->
+
+        <div class="the-content">
+          <p style="text-align: center;">
+            <img class="aligncenter  wp-image-75" src="{{ p.image }}" alt="{{ p.image }}" height="800" width="800">
+          </p>
+          <p style="text-align: left;">{{ p.summary }}</p>
+        </div><!-- the-content -->
+
+        <div class="meta clearfix">
+          <div class="category">
+            <ul class="post-categories">
+              <li>
+                <a href="" title="" rel="category tag">design</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tags"></div>
+        </div><!-- Meta -->
+      </article>
+      {% endfor %}
+
+      <!-- pagintation -->
+      <div id="pagination" class="clearfix">
+        <div class="past-page"></div>
+        <div class="next-page"><a href="/posts"> « Older</a></div>
+      </div><!-- pagination -->
+
+      {% else %}
+        <h1>No posts!</h1>
+      {% endif %}
+    </div><!-- #content .site-content -->
+  </div><!-- #primary .content-area -->
+</div><!-- / container-->
+{% endblock %}
