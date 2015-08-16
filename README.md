@@ -6,6 +6,7 @@
 * [ChicagoBoss master](https://github.com/ChicagoBoss/ChicagoBoss)
 * [typescript](http://www.typescriptlang.org/)
 * [scss](http://sass-lang.com/)
+* [theme](http://lessmade.com/themes/less/)
 
 #### Usage
 

@@ -84,3 +84,15 @@ delete('DELETE', [Id]) ->
 		{error, Reason}->
       {json, [{error, Reason}]}
 	end.
+
+
+%%
+%% Uploader image api
+%%
+uploader('POST', []) ->
+  [{sb_uploaded_file, FileName, TempLocation, _Size, _Type, _}] = Req:post_files(),
+  Fname = "./priv/static/uploader/" ++ FileName,
+  file:copy(TempLocation, Fname),
+  file:delete(TempLocation),
+  Url = "/static/uploader/" ++ FileName,
+  {json, [{url, Url}]}.

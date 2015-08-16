@@ -2,6 +2,11 @@ deps/
 ebin/
 /.eunit
 
+/scratch/
+/priv/static/uploader/*.png
+/priv/static/uploader/*.jpg
+/priv/static/uploader/*.jpeg
+
 *.log
 console.log
 crash.log

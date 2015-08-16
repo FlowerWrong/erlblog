@@ -33,6 +33,7 @@ INSERT INTO authors (username, password) VALUES('yangfusheng', '123456');
 
 CREATE TABLE posts (
   id MEDIUMINT NOT NULL AUTO_INCREMENT,
+  image VARCHAR(255) DEFAULT NULL,
   title VARCHAR(255) NOT NULL,
   summary TEXT DEFAULT NULL,
   content TEXT NOT NULL,

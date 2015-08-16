@@ -1,2 +1,2 @@
--module(post, [Id, Title, Summary, Content, Markdown, AuthorId]).
+-module(post, [Id, Image, Title, Summary, Content, Markdown, AuthorId]).
 -compile(export_all).
