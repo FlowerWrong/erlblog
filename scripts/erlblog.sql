@@ -29,7 +29,7 @@ CREATE TABLE authors (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO authors (username, password, avatar) VALUES('yangfusheng', '123456', 'https://www.4008-517-517.cn/cn/static/1438099935002/assets/86/img/mcdelivery_logo_zh.jpg');
+INSERT INTO authors (username, password, avatar) VALUES('yangfusheng', '963b4fdae702bc7e83e6fe52769f381a', 'https://www.4008-517-517.cn/cn/static/1438099935002/assets/86/img/mcdelivery_logo_zh.jpg');
 
 
 CREATE TABLE posts (

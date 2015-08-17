@@ -11,15 +11,17 @@
 # -------------------------------------------------------------------
 
 do_start () {
+    # $1是第1参数、$2是第2参数
     if test $(echo "$1"|grep "^exec erl"> /dev/null;echo $?) -eq 0
     then
+        echo "$1"
         eval "$1"
     else
         echo "$1"
     fi
 }
 
-
+# $0 -> 添加到Shell的参数个数
 cd `dirname $0`
 
 case "${1:-''}" in
@@ -32,6 +34,7 @@ case "${1:-''}" in
         
   'start-dev')
         # Start Boss in development mode
+        echo "starting boss in development mode..."
         START_DEV=$(./rebar boss c=start_dev_cmd|grep -v "==>")
         do_start "$START_DEV"
         ;;

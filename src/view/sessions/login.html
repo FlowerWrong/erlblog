@@ -11,10 +11,10 @@
       {% endif %}
       <form method="post" action="/login">
         Name:<br />
-        <input name="name" /><br /><br />
+        <input name="username" value="" /><br /><br />
 
         Password:<br />
-        <input name="password" type="password" /><br /><br />
+        <input name="password" type="password" value="" /><br /><br />
 
         <input type="submit" value="Log in" />
         <input type="hidden" name="redirect" value='{{ redirect|default_if_none:"/" }}' />

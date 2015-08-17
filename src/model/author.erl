@@ -14,9 +14,13 @@ validation_tests() ->
 session_identifier() ->
   mochihex:to_hex(erlang:md5(?SECRET_STRING ++ Id)).
 
-check_password(Password) ->
+
+% "4e83a4f4f90a28a12a06e0c535b13727" "yangfusheng"
+% "963b4fdae702bc7e83e6fe52769f381a" "123456"
+check_password(PasswordPlain) ->
   Salt = mochihex:to_hex(erlang:md5(Username)),
-  user_lib:hash_password(Password, Salt) =:= Password.
+  UserPass = user_lib:hash_password(PasswordPlain, Salt),
+  UserPass =:= binary:bin_to_list(Password).
 
 login_cookies() ->
   [ mochiweb_cookies:cookie("user_id", Id, [{path, "/"}]),
