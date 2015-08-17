@@ -6,10 +6,17 @@
 <div class="container">
   <div id="primary">
     <div id="content" role="main">
-      <form method="post" action="/uploader" enctype="multipart/form-data">
+      <form method="post" action="/posts/create" enctype="multipart/form-data">
         <input id="fileupload" type="file" name="file" value="请上传图片" />
         <input type="hidden" name="image" value="" />
-        <input type="submit" value="submit" />
+
+        <input type="text" name="title" value="">
+        <textarea name="summary"></textarea>
+        <textarea name="content"></textarea>
+        <textarea name="markdown"></textarea>
+        <input type="number" name="author_id" value="">
+
+        <input type="submit" value="submit" class="submit-post" />
       </form>
 
       <!-- ace editor -->
@@ -23,23 +30,33 @@
         editor.getSession().on('change', function(e) {
           console.log(e);
         });
+
+        (function($) {
+          "use strict";
+          $(function() {
+            $(".submit-post").on("click", function () {
+              console.log();
+              return false;
+            });
+          });
+        }(jQuery));
       </script>
 
       <!-- jquery file uploader -->
-      <script src="/static/plugins/jquery_file_upload9.11.0/vendor/jquery.ui.widget.js"></script>
-      <script src="/static/plugins/jquery_file_upload9.11.0/jquery.iframe-transport.js"></script>
-      <script src="/static/plugins/jquery_file_upload9.11.0/jquery.fileupload.js"></script>
+      <script src="/static/components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+      <script src="/static/components/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+      <script src="/static/components/blueimp-file-upload/js/jquery.fileupload.js"></script>
       <script>
-      $(function () {
-        $('#fileupload').fileupload({
-          url: '/uploader',
-          dataType: 'json',
-          done: function (e, data) {
-            console.dir(data);
-            $(".img-view img").attr('src', data.result.url);
-          }
+        $(function () {
+          $('#fileupload').fileupload({
+            url: '/uploader',
+            dataType: 'json',
+            done: function (e, data) {
+              console.dir(data);
+              $(".img-view img").attr('src', data.result.url);
+            }
+          });
         });
-      });
       </script>
 
       <div class="img-view">
