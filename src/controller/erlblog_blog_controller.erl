@@ -22,18 +22,15 @@ design('GET', []) ->
   {ok, [{msg, "Design"}]}.
 
 %%
-%% Post
-%%
-%% POST blog
+%% 写blog
 %%
 create('POST', []) ->
   Image = Req:post_param("image"),
 	Title = Req:post_param("title"),
-  Summary = Req:post_param("title"),
-	Content = Req:post_param("content"),
-  Markdown = Req:post_param("content"),
-	AuthorId = Req:post_param("author_id"),
-	CreatedAt = erlang:now(),
+  Summary = Req:post_param("summary"),
+	Content = Req:post_param("markdown"),
+  Markdown = Req:post_param("markdown"),
+	AuthorId = 1,
 	NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
 	case NewPost:save() of
 		{ok, SavedPost}->
@@ -44,9 +41,7 @@ create('POST', []) ->
 
 
 %%
-%% Post
-%%
-%% PUT blog
+%% 更新
 %%
 update('PUT', [Id]) ->
   Post = boss_db:find(Id),
@@ -73,18 +68,15 @@ update('PUT', [Id]) ->
 
 
 %%
-%% Post
+%% 单篇博客
 %%
-%% GET post
 show('GET', [Id]) ->
   Post = boss_db:find(Id),
   {ok, [{post, Post}]}.
 
 
 %%
-%% Post
-%%
-%% DELETE blog
+%% 删除
 %%
 delete('DELETE', [Id]) ->
 	case boss_db:delete(Id) of
@@ -96,7 +88,7 @@ delete('DELETE', [Id]) ->
 
 
 %%
-%% Uploader image api
+%% 上传图片 api
 %%
 uploader('POST', []) ->
   [{sb_uploaded_file, FileName, TempLocation, _Size, _Type, _}] = Req:post_files(),

@@ -7,21 +7,33 @@
   <div id="primary">
     <div id="content" role="main">
       <form method="post" action="/posts/create" enctype="multipart/form-data">
-        <input id="fileupload" type="file" name="file" value="请上传图片" />
-        <input type="hidden" name="image" value="" />
+        <div class="fileupload-box">
+          <input id="fileupload" type="file" name="file" value="请上传图片" />
+          <input type="hidden" name="image" value="" />
+        </div>
+        <fieldset class="fieldset-box title">
+          <label class="label-box">标题</label>
+          <input type="text" name="title" class="input-box" value="">
+        </fieldset>
+        <fieldset class="fieldset-box summary">
+          <label class="label-box">摘要</label>
+          <textarea name="summary" class="input-box"></textarea>
+        </fieldset>
 
-        <input type="text" name="title" value="">
-        <textarea name="summary"></textarea>
-        <textarea name="content"></textarea>
-        <textarea name="markdown"></textarea>
-        <input type="number" name="author_id" value="">
+        <textarea name="content" class="hidden"></textarea>
+
+        <div id="editor">## Readme</div>
+
+        <textarea name="markdown" class="hidden"></textarea>
 
         <input type="submit" value="submit" class="submit-post" />
       </form>
 
       <!-- ace editor -->
-      <div id="editor">## Readme</div>
       <script src="/static/plugins/ace1.2.0/ace.js" type="text/javascript" charset="utf-8"></script>
+      <script src="/static/components/marked/lib/marked.js"></script>
+      <link rel="stylesheet" href="/static/components/highlightjs/styles/default.css" type="text/css" media="all">
+      <script src="/static/components/highlightjs/highlight.pack.js"></script>
       <script>
         // http://ace.c9.io/#nav=howto
         var editor = ace.edit("editor");
@@ -29,13 +41,47 @@
         editor.getSession().setMode("ace/mode/markdown");
         editor.getSession().on('change', function(e) {
           console.log(e);
+          marked.setOptions({
+            highlight: function (code) {
+              return hljs.highlightAuto(code).value;
+            }
+          });
+          var markdown = marked(editor.getValue());
+          console.log(markdown);
+          $('.markdown-preview').html(markdown);
         });
 
         (function($) {
           "use strict";
           $(function() {
             $(".submit-post").on("click", function () {
-              console.log();
+              var title, summary, markdown, image, data;
+              title = $( "input[name='title']").val();
+              console.log(title);
+              summary = $( "textarea[name='summary']").val();
+              console.log(summary);
+              markdown = editor.getValue();
+              console.log(markdown);
+              image = $( "input[name='image']").val();
+              console.log(image);
+
+              data = {
+                title: title,
+                image: image,
+                summary: summary,
+                markdown: markdown
+              };
+
+              <!-- 提交 -->
+              $.ajax({
+                type: "POST",
+                url: '/posts/create',
+                dataType: 'json',
+                data: data,
+                success: function(data, textStatus, jqXHR) {
+                  console.log(data);
+                }
+              });
               return false;
             });
           });
@@ -53,14 +99,20 @@
             dataType: 'json',
             done: function (e, data) {
               console.dir(data);
+              $( "input[name='image']").val(data.result.url);
               $(".img-view img").attr('src', data.result.url);
+              $(".img-view").show();
             }
           });
         });
       </script>
 
-      <div class="img-view">
+      <div class="img-view hidden">
         <img src="">
+      </div>
+
+      <div class="markdown-preview">
+
       </div>
     </div><!-- #content .site-content -->
   </div><!-- #primary .content-area -->

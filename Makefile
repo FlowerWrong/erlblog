@@ -19,7 +19,7 @@ lint-scss:
 	scss-lint ./priv/static/stylesheets/
 
 start-dev:
-	./init-dev.sh
+	./init.sh start-dev
 
 all: get-deps compile compile-app
 

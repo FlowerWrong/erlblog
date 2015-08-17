@@ -1,13 +1,13 @@
 -module(author, [Id, Username, Password, Avatar]).
 -compile(export_all).
 
--has({posts, many}).
-
-validation_tests() ->
-  [{fun() -> length(Username) > 0 end,
-    "请输入用户名"},
-    {fun() -> length(Password) > 0 end,
-      "请输入密码"}].
+%% -has({posts, many}).
+%%
+%% validation_tests() ->
+%%   [{fun() -> length(Username) > 0 end,
+%%     "请输入用户名"},
+%%     {fun() -> length(Password) > 0 end,
+%%       "请输入密码"}].
 
 -define(SECRET_STRING, "erlblog").
 
