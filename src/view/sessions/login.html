@@ -1,0 +1,25 @@
+{% extends "layout/posts.html" %}
+
+{% block title %}登陆{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div id="primary">
+    <div id="content" role="main">
+      {% if error %}
+      <font color="red">{{ error }}</font>
+      {% endif %}
+      <form method="post" action="/login">
+        Name:<br />
+        <input name="name" /><br /><br />
+
+        Password:<br />
+        <input name="password" type="password" /><br /><br />
+
+        <input type="submit" value="Log in" />
+        <input type="hidden" name="redirect" value='{{ redirect|default_if_none:"/" }}' />
+      </form>
+    </div><!-- #content .site-content -->
+  </div><!-- #primary .content-area -->
+</div><!-- / container-->
+{% endblock %}

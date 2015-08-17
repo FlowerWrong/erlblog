@@ -13,3 +13,6 @@
 {"/posts/(post\\-\\d)/delete", [{controller, "blog"}, {action, "delete"}, {id, '$1'}]}.
 
 {"/uploader", [{controller, "blog"}, {action, "uploader"}]}.
+
+{"/login", [{controller, "sessions"}, {action, "login"}]}.
+{"/logout", [{controller, "sessions"}, {action, "logout"}]}.
