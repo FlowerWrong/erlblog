@@ -80,6 +80,12 @@
                 data: data,
                 success: function(data, textStatus, jqXHR) {
                   console.log(data);
+                  if(data.error !== undefined) {
+                    alert(data.error);
+                  }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                  console.log(errorThrown);
                 }
               });
               return false;

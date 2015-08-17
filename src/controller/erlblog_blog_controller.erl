@@ -25,19 +25,24 @@ design('GET', []) ->
 %% 写blog
 %%
 create('POST', []) ->
-  Image = Req:post_param("image"),
-	Title = Req:post_param("title"),
-  Summary = Req:post_param("summary"),
-	Content = Req:post_param("markdown"),
-  Markdown = Req:post_param("markdown"),
-	AuthorId = 1,
-	NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
-	case NewPost:save() of
-		{ok, SavedPost}->
-			{json, [{post, SavedPost}]};
-		{error, Reason}->
-      {json, [{error, Reason}]}
-	end.
+  case user_lib:require_login(Req) of
+    {redirect, _Url} -> {json, [{error, "Please login"}]};
+    {ok, Author} ->
+      io:format("~p~n", [Author]),
+      Image = Req:post_param("image"),
+      Title = Req:post_param("title"),
+      Summary = Req:post_param("summary"),
+      Content = Req:post_param("markdown"),
+      Markdown = Req:post_param("markdown"),
+      AuthorId = Author:id,
+      NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
+      case NewPost:save() of
+        {ok, SavedPost}->
+          {json, [{post, SavedPost}]};
+        {error, Reason}->
+          {json, [{error, Reason}]}
+      end
+  end.
 
 
 %%
