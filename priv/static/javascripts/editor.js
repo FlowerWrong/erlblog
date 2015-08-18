@@ -35,10 +35,21 @@
             summary: summary,
             markdown: markdown
         };
-        // 提交
+        var url = $("form").attr("action");
+        console.log(url);
+        var type, successMsg;
+        if (url === "/posts/create") {
+            type = "POST";
+            successMsg = "创建成功";
+        }
+        else {
+            type = "PUT";
+            successMsg = "更新成功";
+        }
+        // 创建/更新博客
         $.ajax({
-            type: "POST",
-            url: "/posts/create",
+            type: type,
+            url: url,
             dataType: "json",
             data: data,
             success: function (data, textStatus, jqXHR) {
@@ -47,7 +58,7 @@
                     alert(data.error);
                 }
                 else {
-                    alert("创建成功");
+                    alert(successMsg);
                     window.location.href = "/";
                 }
             },

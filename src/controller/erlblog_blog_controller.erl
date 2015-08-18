@@ -73,8 +73,10 @@ update('PUT', [Id]) ->
       Image = Req:post_param("image"),
       Title = Req:post_param("title"),
       Summary = Req:post_param("summary"),
-      Content = Req:post_param("markdown"),
       Markdown = Req:post_param("markdown"),
+
+      Content = erlmarkdown:conv(Markdown),
+
       UserId = Author:id(),
 
       AuthorId = list_to_integer(UserId -- "author-"),
