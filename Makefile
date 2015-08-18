@@ -11,6 +11,7 @@ lint-ts:
 
 compile-less:
 	lessc ./priv/static/stylesheets/style.less ./priv/static/stylesheets/style.css
+	lessc ./priv/static/stylesheets/admin.less ./priv/static/stylesheets/admin.css
 
 compile-scss:
 	sass ./priv/static/stylesheets/*.scss ./priv/static/stylesheets/style.css

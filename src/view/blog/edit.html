@@ -1,56 +1,52 @@
-{% extends "layout/posts.html" %}
+{% extends "layout/admin.html" %}
 
 {% block title %}编辑-{{ post.title }}{% endblock %}
 
 {% block body %}
 <div class="container">
-  <div id="primary">
-    <div id="content" role="main">
-      <form method="post" action="/posts/{{ post.id }}/update" enctype="multipart/form-data">
-        <div class="fileupload-box">
-          <input id="fileupload" type="file" name="file" value="请上传图片"/>
-          <input type="hidden" name="image" value="{{ post.image }}"/>
-        </div>
-        <fieldset class="fieldset-box title">
-          <label class="label-box">标题</label>
-          <input type="text" name="title" class="input-box" value="{{ post.title }}">
-        </fieldset>
-        <fieldset class="fieldset-box summary">
-          <label class="label-box">摘要</label>
-          <textarea name="summary" class="input-box">{{ post.summary }}</textarea>
-        </fieldset>
-
-        <div class="editor-toolbar">
-          <ul class="markdown-intro">
-            <li><a href="/">markdown介绍</a></li>
-            <li>编辑</li>
-            <li>预览</li>
-          </ul>
-          <ul class="markdown-img">
-            <li><a href="#" id="topic-upload-image"><i class="fa fa-fa fa-image"></i></a></li>
-            <li><a href="#"><i class="fa fa-fa fa-houzz"></i></a></li>
-          </ul>
-        </div>
-        <div id="editor">{{ post.markdown }}</div>
-        <div class="markdown-preview"></div>
-
-        <input type="submit" value="update" class="submit-post"/>
-      </form>
-
-      <div class="img-view hidden">
-        <img src="{{ post.image }}">
+  <div id="content" role="main">
+    <form method="post" action="/posts/{{ post.id }}/update" enctype="multipart/form-data">
+      <div class="fileupload-box">
+        <input id="fileupload" type="file" name="file" value="请上传图片"/>
+        <input type="hidden" name="image" value="{{ post.image }}"/>
       </div>
+      <fieldset class="fieldset-box title">
+        <label class="label-box">标题</label>
+        <input type="text" name="title" class="input-box" value="{{ post.title }}">
+      </fieldset>
+      <fieldset class="fieldset-box summary">
+        <label class="label-box">摘要</label>
+        <textarea name="summary" class="input-box">{{ post.summary }}</textarea>
+      </fieldset>
+
+      <div class="editor-toolbar">
+        <ul class="markdown-intro">
+          <li><a href="/">markdown介绍</a></li>
+          <li>编辑</li>
+          <li>预览</li>
+        </ul>
+        <ul class="markdown-img">
+          <li><a href="#" id="topic-upload-image"><i class="fa fa-fa fa-image"></i></a></li>
+          <li><a href="#"><i class="fa fa-fa fa-houzz"></i></a></li>
+        </ul>
+      </div>
+      <div id="editor">{{ post.markdown }}</div>
+      <div class="markdown-preview"></div>
+
+      <input type="submit" value="update" class="submit-post"/>
+    </form>
+
+    <div class="img-view hidden">
+      <img src="{{ post.image }}">
     </div>
-    <!-- #content .site-content -->
   </div>
-  <!-- #primary .content-area -->
+  <!-- #content .site-content -->
 </div><!-- / container-->
 {% endblock %}
 
 {% block js %}
 <script type="text/javascript" src="/static/components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="/static/components/fitvids/jquery.fitvids.js"></script>
-<script type="text/javascript" src="/static/javascripts/theme.js"></script>
+<script type="text/javascript" src="/static/javascripts/admin.js"></script>
 
 <!-- ace editor -->
 <script src="/static/components/ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
