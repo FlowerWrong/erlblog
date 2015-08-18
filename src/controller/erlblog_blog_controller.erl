@@ -23,6 +23,15 @@ about('GET', []) ->
 design('GET', []) ->
   {ok, [{msg, "Design"}]}.
 
+%%
+%% 新建
+%%
+new('GET', []) ->
+  case user_lib:require_login(Req) of
+    {redirect, _Url} -> {json, [{error, "Please login"}]};
+    {ok, _Author} ->
+      {ok, [{msg, "new"}]}
+  end.
 
 %%
 %% 写blog
