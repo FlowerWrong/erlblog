@@ -1,13 +1,64 @@
 {% extends "layout/posts.html" %}
 
-{% block title %}编辑博客{% endblock %}
+{% block title %}编辑-{{ post.title }}{% endblock %}
 
 {% block body %}
 <div class="container">
   <div id="primary">
     <div id="content" role="main">
-      编辑博客
-    </div><!-- #content .site-content -->
-  </div><!-- #primary .content-area -->
+      <form method="post" action="/posts/{{ post.id }}/update" enctype="multipart/form-data">
+        <div class="fileupload-box">
+          <input id="fileupload" type="file" name="file" value="请上传图片"/>
+          <input type="hidden" name="image" value="{{ post.image }}"/>
+        </div>
+        <fieldset class="fieldset-box title">
+          <label class="label-box">标题</label>
+          <input type="text" name="title" class="input-box" value="{{ post.title }}">
+        </fieldset>
+        <fieldset class="fieldset-box summary">
+          <label class="label-box">摘要</label>
+          <textarea name="summary" class="input-box">{{ post.summary }}</textarea>
+        </fieldset>
+
+        <textarea name="content" class="hidden"></textarea>
+
+        <div id="editor">{{ post.markdown }}</div>
+
+        <input type="submit" value="update" class="submit-post"/>
+      </form>
+
+      <div class="img-view hidden">
+        <img src="{{ post.image }}">
+      </div>
+
+      <div class="markdown-preview">
+
+      </div>
+    </div>
+    <!-- #content .site-content -->
+  </div>
+  <!-- #primary .content-area -->
 </div><!-- / container-->
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/static/components/fitvids/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/static/javascripts/theme.js"></script>
+
+
+<!-- ace editor -->
+<script src="/static/plugins/ace1.2.0/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/components/marked/lib/marked.js"></script>
+<link rel="stylesheet" href="/static/components/highlightjs/styles/default.css" type="text/css" media="all">
+<script src="/static/components/highlightjs/highlight.pack.js"></script>
+
+
+<!-- jquery file uploader -->
+<script src="/static/components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="/static/components/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="/static/components/blueimp-file-upload/js/jquery.fileupload.js"></script>
+
+
+<script type="text/javascript" src="/static/javascripts/editor.js"></script>
 {% endblock %}

@@ -1,4 +1,4 @@
-## A blog write by erlang.
+## A blog written in erlang.
 
 #### Dependency
 

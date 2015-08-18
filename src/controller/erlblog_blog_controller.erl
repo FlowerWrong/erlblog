@@ -9,17 +9,20 @@ index('GET', []) ->
   Posts = boss_db:find(post, []),
   {ok, [{posts, Posts}]}.
 
+
 %%
 %% 关于我们
 %%
 about('GET', []) ->
   {ok, [{msg, "About Us"}]}.
 
+
 %%
 %% 设计
 %%
 design('GET', []) ->
   {ok, [{msg, "Design"}]}.
+
 
 %%
 %% 写blog
@@ -28,13 +31,15 @@ create('POST', []) ->
   case user_lib:require_login(Req) of
     {redirect, _Url} -> {json, [{error, "Please login"}]};
     {ok, Author} ->
-      io:format("~p~n", [Author]),
       Image = Req:post_param("image"),
       Title = Req:post_param("title"),
       Summary = Req:post_param("summary"),
       Content = Req:post_param("markdown"),
       Markdown = Req:post_param("markdown"),
-      AuthorId = Author:id,
+      UserId = Author:id(),
+
+      AuthorId = list_to_integer(UserId -- "author-"),
+
       NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
       case NewPost:save() of
         {ok, SavedPost}->
@@ -44,32 +49,52 @@ create('POST', []) ->
       end
   end.
 
+%%
+%% 编辑
+%%
+edit('GET', [Id]) ->
+  case user_lib:require_login(Req) of
+    {redirect, _Url} -> {json, [{error, "Please login"}]};
+    {ok, Author} ->
+      Post = boss_db:find(Id),
+      {ok, [{post, Post}]}
+  end.
+
 
 %%
 %% 更新
 %%
 update('PUT', [Id]) ->
-  Post = boss_db:find(Id),
-  Image = Req:post_param("image"),
-	Title = Req:post_param("title"),
-  Summary = Req:post_param("title"),
-	Content = Req:post_param("content"),
-  Markdown = Req:post_param("content"),
-	AuthorId = Req:post_param("author_id"),
-  NewPost = Post:set([
-    {image, Image},
-    {title, Title},
-    {summary, Summary},
-    {content, Content},
-    {markdown, Markdown},
-    {author_id, AuthorId}
-  ]),
-	case NewPost:save() of
-		{ok, SavedPost}->
-			{json, [{post, SavedPost}]};
-		{error, Reason}->
-      {json, [{error, Reason}]}
-	end.
+  case user_lib:require_login(Req) of
+    {redirect, _Url} -> {json, [{error, "Please login"}]};
+    {ok, Author} ->
+      Post = boss_db:find(Id),
+
+      Image = Req:post_param("image"),
+      Title = Req:post_param("title"),
+      Summary = Req:post_param("summary"),
+      Content = Req:post_param("markdown"),
+      Markdown = Req:post_param("markdown"),
+      UserId = Author:id(),
+
+      AuthorId = list_to_integer(UserId -- "author-"),
+
+      NewPost = Post:set([
+        {image, Image},
+        {title, Title},
+        {summary, Summary},
+        {content, Content},
+        {markdown, Markdown},
+        {author_id, AuthorId}
+      ]),
+
+      case NewPost:save() of
+        {ok, SavedPost}->
+          {json, [{post, SavedPost}]};
+        {error, Reason}->
+          {json, [{error, Reason}]}
+      end
+  end.
 
 
 %%
