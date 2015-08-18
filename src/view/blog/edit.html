@@ -21,10 +21,18 @@
         </fieldset>
 
         <div class="editor-toolbar">
-          <span class="markdown-intro"><a href="/">markdown介绍</a></span>
-          <span class="markdown-img"><img src=""></span>
+          <ul class="markdown-intro">
+            <li><a href="/">markdown介绍</a></li>
+            <li>编辑</li>
+            <li>预览</li>
+          </ul>
+          <ul class="markdown-img">
+            <li><a href="#" id="topic-upload-image"><i class="fa fa-fa fa-image"></i></a></li>
+            <li><a href="#"><i class="fa fa-fa fa-houzz"></i></a></li>
+          </ul>
         </div>
         <div id="editor">{{ post.markdown }}</div>
+        <div class="markdown-preview"></div>
 
         <input type="submit" value="update" class="submit-post"/>
       </form>
@@ -32,8 +40,6 @@
       <div class="img-view hidden">
         <img src="{{ post.image }}">
       </div>
-
-      <div class="markdown-preview"></div>
     </div>
     <!-- #content .site-content -->
   </div>
@@ -58,6 +64,10 @@
 <script src="/static/components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
 <script src="/static/components/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 <script src="/static/components/blueimp-file-upload/js/jquery.fileupload.js"></script>
+
+
+<!-- font-awesome -->
+<link rel="stylesheet" href="/static/components/font-awesome/css/font-awesome.css">
 
 
 <script type="text/javascript" src="/static/javascripts/editor.js"></script>

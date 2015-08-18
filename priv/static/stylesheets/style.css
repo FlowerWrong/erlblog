@@ -693,16 +693,20 @@ html[xmlns] .clearfix {
 .editor-toolbar .markdown-intro {
   float: left;
   font-size: 14px;
+  list-style: outside none none;
+}
+.editor-toolbar .markdown-intro li {
+  float: left;
+  margin-right: 15px;
 }
 .editor-toolbar .markdown-img {
   float: right;
+  font-size: 14px;
+  list-style: outside none none;
 }
-.editor-toolbar .markdown-img img {
-  width: 20px;
-  height: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+.editor-toolbar .markdown-img li {
+  float: left;
+  margin-right: 15px;
 }
 .fileupload-box {
   width: 100%;
