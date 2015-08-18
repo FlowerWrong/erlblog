@@ -7,6 +7,9 @@ ebin/
 /priv/static/uploader/*.jpg
 /priv/static/uploader/*.jpeg
 
+/priv/static/javascripts/*.js
+/priv/static/stylesheets/*.css
+
 priv/static/components/
 
 *.log
