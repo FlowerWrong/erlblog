@@ -69,3 +69,10 @@ q().
 rebar compile
 init.sh reload
 ```
+
+### Todo
+
+- [ ] Use react to rewrite tags input
+- [ ] Fix blockUI with location.href not work
+- [ ] Add created_at and updated_at datetime column name
+- [x] Markdown compile in erlang
