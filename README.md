@@ -16,6 +16,7 @@
 * [Highlightjs](https://highlightjs.org)
 * [jQuery-Tags-Input](https://github.com/xoxco/jQuery-Tags-Input)
 * [fortawesome icons](http://fortawesome.github.io/Font-Awesome/)
+* [blockUI](http://jquery.malsup.com/block)
 * [react](https://github.com/facebook/react)
 
 #### Curl test

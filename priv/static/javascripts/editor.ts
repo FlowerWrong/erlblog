@@ -18,29 +18,36 @@ declare var hljs: any;
         }
     });
     var markdown = marked(editor.getValue());
-    console.log(markdown);
     $(".markdown-preview").html(markdown);
 
     editor.getSession().on("change", function (e) {
-        console.log(e);
         var markdown = marked(editor.getValue());
-        console.log(markdown);
         $(".markdown-preview").html(markdown);
     });
+
+    // blockUI
+    var prompt = function(msg) {
+        $.blockUI({ css: {
+            border: "none",
+            padding: "15px",
+            backgroundColor: "#000",
+            "-webkit-border-radius": "10px",
+            "-moz-border-radius": "10px",
+            opacity: .5,
+            color: "#fff"
+        },
+            message: msg
+        });
+        setTimeout($.unblockUI, 5000);
+    };
 
     $(".submit-post").on("click", function () {
         var title, summary, markdown, image, tags, data;
         title = $("input[name='title']").val();
-        console.log(title);
         summary = $("textarea[name='summary']").val();
-        console.log(summary);
         markdown = editor.getValue();
-        console.log(markdown);
         image = $("input[name='image']").val();
-        console.log(image);
-
         tags = $("input[name='tags']").val();
-        console.log(tags);
 
         data = {
             title: title,
@@ -68,11 +75,12 @@ declare var hljs: any;
             dataType: "json",
             data: data,
             success: function (data, textStatus, jqXHR) {
-                console.log(data);
+                console.log(jqXHR);
                 if (data.error !== undefined) {
-                    alert(data.error);
+                    prompt(data.error);
                 } else {
-                    alert(successMsg);
+                    // FIXME Need to fix blockUI not work for location
+                    prompt(successMsg);
                     window.location.href = "/";
                 }
             },
@@ -88,13 +96,14 @@ declare var hljs: any;
         url: "/uploader",
         dataType: "json",
         done: function (e, data) {
-            console.dir(data);
             $("input[name='image']").val(data.result.url);
             $(".img-view img").attr("src", data.result.url);
             $(".img-view").show();
         }
     });
 
+
+    // edit or new page
     if($(".img-view img").attr("src") !== "") {
         $(".img-view").show();
     }
