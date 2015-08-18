@@ -20,8 +20,10 @@
           <textarea name="summary" class="input-box">{{ post.summary }}</textarea>
         </fieldset>
 
-        <textarea name="content" class="hidden"></textarea>
-
+        <div class="editor-toolbar">
+          <span class="markdown-intro"><a href="/">markdown介绍</a></span>
+          <span class="markdown-img"><img src=""></span>
+        </div>
         <div id="editor">{{ post.markdown }}</div>
 
         <input type="submit" value="update" class="submit-post"/>
@@ -31,9 +33,7 @@
         <img src="{{ post.image }}">
       </div>
 
-      <div class="markdown-preview">
-
-      </div>
+      <div class="markdown-preview"></div>
     </div>
     <!-- #content .site-content -->
   </div>
