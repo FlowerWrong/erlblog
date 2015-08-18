@@ -5,6 +5,7 @@
 * [rebar 2](https://github.com/rebar/rebar)
 * [ChicagoBoss master](https://github.com/ChicagoBoss/ChicagoBoss)
 * [typescript](http://www.typescriptlang.org/)
+* [bower](http://bower.io/)
 * [scss](http://sass-lang.com/)
 * [less](http://lesscss.org/)
 * [theme](http://lessmade.com/themes/less/)
@@ -13,6 +14,8 @@
 * [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload)
 * [marked js](https://github.com/chjj/marked)
 * [Highlightjs](https://highlightjs.org)
+* [jQuery-Tags-Input](https://github.com/xoxco/jQuery-Tags-Input)
+* [fortawesome icons](http://fortawesome.github.io/Font-Awesome/)
 * [react](https://github.com/facebook/react)
 
 #### Curl test
@@ -54,7 +57,7 @@ rebar boss c=test_functional
 rebar boss c=test_eunit
 
 # dev server
-./init-dev.sh
+make
 q().
 
 # production server
