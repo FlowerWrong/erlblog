@@ -36,9 +36,21 @@ create('POST', []) ->
       Summary = Req:post_param("summary"),
       Content = Req:post_param("markdown"),
       Markdown = Req:post_param("markdown"),
-      UserId = Author:id(),
 
+      UserId = Author:id(),
       AuthorId = list_to_integer(UserId -- "author-"),
+
+      % 标签
+      Tags = Req:post_param("tags"),
+      TagList = string:tokens(Tags, ","),
+      lists:foreach(fun(TagName) ->
+        case boss_db:find(tag, [{name, 'equals', TagName}]) of
+          [] ->
+            Tag = tag:new(id, TagName),
+            Tag:save();
+          [_DbTags] -> ok
+        end
+      end, TagList),
 
       NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
       case NewPost:save() of
@@ -55,7 +67,7 @@ create('POST', []) ->
 edit('GET', [Id]) ->
   case user_lib:require_login(Req) of
     {redirect, _Url} -> {json, [{error, "Please login"}]};
-    {ok, Author} ->
+    {ok, _Author} ->
       Post = boss_db:find(Id),
       {ok, [{post, Post}]}
   end.
@@ -78,7 +90,6 @@ update('PUT', [Id]) ->
       Content = erlmarkdown:conv(Markdown),
 
       UserId = Author:id(),
-
       AuthorId = list_to_integer(UserId -- "author-"),
 
       NewPost = Post:set([

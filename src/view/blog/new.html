@@ -20,17 +20,30 @@
           <textarea name="summary" class="input-box"></textarea>
         </fieldset>
 
-        <div id="editor">## Readme</div>
+        <fieldset class="fieldset-box tags">
+          <label class="label-box">标签</label>
+          <input type="text" name="tags" class="input-box" id="tags" value="">
+        </fieldset>
+
+        <div class="editor-toolbar">
+          <ul class="markdown-intro">
+            <li><a href="/">markdown介绍</a></li>
+            <li>编辑</li>
+            <li>预览</li>
+          </ul>
+          <ul class="markdown-img">
+            <li><a href="#" id="topic-upload-image"><i class="fa fa-fa fa-image"></i></a></li>
+            <li><a href="#"><i class="fa fa-fa fa-houzz"></i></a></li>
+          </ul>
+        </div>
+        <div id="editor">## README</div>
+        <div class="markdown-preview"></div>
 
         <input type="submit" value="submit" class="submit-post"/>
       </form>
 
       <div class="img-view hidden">
         <img src="">
-      </div>
-
-      <div class="markdown-preview">
-
       </div>
     </div>
     <!-- #content .site-content -->
@@ -44,18 +57,23 @@
 <script type="text/javascript" src="/static/components/fitvids/jquery.fitvids.js"></script>
 <script type="text/javascript" src="/static/javascripts/theme.js"></script>
 
-
 <!-- ace editor -->
 <script src="/static/plugins/ace1.2.0/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="/static/components/marked/lib/marked.js"></script>
 <link rel="stylesheet" href="/static/components/highlightjs/styles/default.css" type="text/css" media="all">
 <script src="/static/components/highlightjs/highlight.pack.js"></script>
 
-
 <!-- jquery file uploader -->
 <script src="/static/components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
 <script src="/static/components/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 <script src="/static/components/blueimp-file-upload/js/jquery.fileupload.js"></script>
+
+<!-- font-awesome -->
+<link rel="stylesheet" href="/static/components/font-awesome/css/font-awesome.css">
+
+<!-- jQuery-Tags-Input -->
+<script src="/static/components/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/components/jquery.tagsinput/src/jquery.tagsinput.css" />
 
 
 <script type="text/javascript" src="/static/javascripts/editor.js"></script>

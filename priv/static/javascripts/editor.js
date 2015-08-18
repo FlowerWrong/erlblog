@@ -20,7 +20,7 @@
         $(".markdown-preview").html(markdown);
     });
     $(".submit-post").on("click", function () {
-        var title, summary, markdown, image, data;
+        var title, summary, markdown, image, tags, data;
         title = $("input[name='title']").val();
         console.log(title);
         summary = $("textarea[name='summary']").val();
@@ -29,11 +29,14 @@
         console.log(markdown);
         image = $("input[name='image']").val();
         console.log(image);
+        tags = $("input[name='tags']").val();
+        console.log(tags);
         data = {
             title: title,
             image: image,
             summary: summary,
-            markdown: markdown
+            markdown: markdown,
+            tags: tags
         };
         var url = $("form").attr("action");
         console.log(url);
@@ -82,4 +85,7 @@
     if ($(".img-view img").attr("src") !== "") {
         $(".img-view").show();
     }
+    // jquery tags input
+    // https://github.com/xoxco/jQuery-Tags-Input#options
+    $("#tags").tagsInput();
 }(jQuery));

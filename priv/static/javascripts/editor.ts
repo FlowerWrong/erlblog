@@ -29,7 +29,7 @@ declare var hljs: any;
     });
 
     $(".submit-post").on("click", function () {
-        var title, summary, markdown, image, data;
+        var title, summary, markdown, image, tags, data;
         title = $("input[name='title']").val();
         console.log(title);
         summary = $("textarea[name='summary']").val();
@@ -39,11 +39,15 @@ declare var hljs: any;
         image = $("input[name='image']").val();
         console.log(image);
 
+        tags = $("input[name='tags']").val();
+        console.log(tags);
+
         data = {
             title: title,
             image: image,
             summary: summary,
-            markdown: markdown
+            markdown: markdown,
+            tags: tags
         };
 
         var url = $("form").attr("action");
@@ -94,4 +98,8 @@ declare var hljs: any;
     if($(".img-view img").attr("src") !== "") {
         $(".img-view").show();
     }
+
+    // jquery tags input
+    // https://github.com/xoxco/jQuery-Tags-Input#options
+    $("#tags").tagsInput();
 }(jQuery));
