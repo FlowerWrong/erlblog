@@ -27,6 +27,7 @@
     "fitvids": "~1.1.0",
     "react": "~0.13.3",
     "font-awesome": "~4.4.0",
-    "jquery.tagsinput": "~1.3.6"
+    "jquery.tagsinput": "~1.3.6",
+    "ace": "ajaxorg/ace-builds"
   }
 }
