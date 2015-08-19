@@ -19,6 +19,13 @@
         <textarea name="summary" class="input-box">{{ post.summary }}</textarea>
       </fieldset>
 
+      <fieldset class="fieldset-box tags">
+        <label class="label-box">标签</label>
+        <input type="text" name="tags" class="input-box" id="tags" value="{{ post.tags }}">
+      </fieldset>
+
+      {{ post_tags }}
+
       <div class="editor-toolbar">
         <ul class="markdown-intro">
           <li><a href="/">markdown介绍</a></li>
@@ -61,6 +68,10 @@
 
 <!-- font-awesome -->
 <link rel="stylesheet" href="/static/components/font-awesome/css/font-awesome.css">
+
+<!-- jQuery-Tags-Input -->
+<script src="/static/components/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/components/jquery.tagsinput/src/jquery.tagsinput.css"/>
 
 <!-- blockUI -->
 <script src="/static/components/blockUI/jquery.blockUI.js"></script>

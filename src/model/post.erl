@@ -1,6 +1,8 @@
 -module(post, [Id, Image, Title, Summary, Content, Markdown, AuthorId]).
 -compile(export_all).
 
+-has({post_tags, many}).
+
 %% -belongs_to(author).
 
 %% validation_tests() ->

@@ -4,9 +4,13 @@
 %%% @doc
 %%%
 %%% @end
-%%% Created : 18. 八月 2015 下午2:12
+%%% Created : 19. 八月 2015 下午5:26
 %%%-------------------------------------------------------------------
--module(tag, [Id, Name]).
+-module(post_tag, [Id, TagId, PostId]).
+-author("yy").
+
+%% API
 -compile(export_all).
 
--has({post_tags, many}).
+-belongs_to(post).
+-belongs_to(tag).

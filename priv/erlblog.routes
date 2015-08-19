@@ -7,10 +7,10 @@
 
 {"/posts/new", [{controller, "blog"}, {action, "new"}]}.
 {"/posts/create", [{controller, "blog"}, {action, "create"}]}.
-{"/posts/(post\\-\\d)/edit", [{controller, "blog"}, {action, "edit"}, {id, '$1'}]}.
-{"/posts/(post\\-\\d)", [{controller, "blog"}, {action, "show"}, {id, '$1'}]}.
-{"/posts/(post\\-\\d)/update", [{controller, "blog"}, {action, "update"}, {id, '$1'}]}.
-{"/posts/(post\\-\\d)/delete", [{controller, "blog"}, {action, "delete"}, {id, '$1'}]}.
+{"/posts/(post\\-\\d+)/edit", [{controller, "blog"}, {action, "edit"}, {id, '$1'}]}.
+{"/posts/(post\\-\\d+)", [{controller, "blog"}, {action, "show"}, {id, '$1'}]}.
+{"/posts/(post\\-\\d+)/update", [{controller, "blog"}, {action, "update"}, {id, '$1'}]}.
+{"/posts/(post\\-\\d+)/delete", [{controller, "blog"}, {action, "delete"}, {id, '$1'}]}.
 
 {"/uploader", [{controller, "blog"}, {action, "uploader"}]}.
 

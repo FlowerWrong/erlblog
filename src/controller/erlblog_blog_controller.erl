@@ -38,24 +38,31 @@ create('POST', []) ->
       Content = Req:post_param("markdown"),
       Markdown = Req:post_param("markdown"),
 
-      UserId = Author:id(),
-      AuthorId = list_to_integer(UserId -- "author-"),
-
       % 标签
       Tags = Req:post_param("tags"),
       TagList = string:tokens(Tags, ","),
-      lists:foreach(fun(TagName) ->
-        case boss_db:find(tag, [{name, 'equals', TagName}]) of
-          [] ->
-            Tag = tag:new(id, TagName),
-            Tag:save();
-          [_DbTags] -> ok
-        end
-      end, TagList),
+
+      UserId = Author:id(),
+      AuthorId = list_to_integer(UserId -- "author-"),
 
       NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
       case NewPost:save() of
         {ok, SavedPost}->
+          lists:foreach(fun(TagName) ->
+            case boss_db:find(tag, [{name, 'equals', TagName}]) of
+              [] ->
+                PostId = SavedPost:id(),
+                Tag = tag:new(id, TagName),
+                case Tag:save() of
+                  {ok, SavedTag}->
+                    PostTag = post_tag:new(id, SavedTag:id(), PostId),
+                    PostTag:save();
+                  {error, Reason}->
+                    io:format("~p~n", [Reason])
+                end;
+              [_DbTags] -> ok
+            end
+          end, TagList),
           {json, [{post, SavedPost}]};
         {error, Reason}->
           {json, [{error, Reason}]}
@@ -70,7 +77,13 @@ edit('GET', [Id]) ->
     {redirect, _Url} -> {json, [{error, "Please login"}]};
     {ok, _Author} ->
       Post = boss_db:find(Id),
-      {ok, [{post, Post}]}
+      PostTags = Post:post_tags(),
+      io:format("~p~n", [PostTags]),
+      lists:foreach(fun(PostTag) ->
+        Tag = PostTag:tag(),
+        io:format("~p~n", [Tag])
+      end, PostTags),
+      {ok, [{post, Post}, {post_tags, PostTags}]}
   end.
 
 %%
