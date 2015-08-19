@@ -12,6 +12,10 @@
 %% API
 -compile(export_all).
 
+
+%%
+%% 登陆 page
+%%
 login('GET', []) ->
   {ok, [{redirect, Req:header(referer)}]};
 

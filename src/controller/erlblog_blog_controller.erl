@@ -3,38 +3,30 @@
 
 
 %%
-%% 博客首页
+%% 博客首页 page
 %%
 index('GET', []) ->
   Posts = boss_db:find(post, []),
   {ok, [{posts, Posts}]}.
 
-
 %%
-%% 关于我们
+%% 关于我们 page
 %%
 about('GET', []) ->
   {ok, [{msg, "About Us"}]}.
 
-
 %%
-%% 设计
+%% 设计 page
 %%
 design('GET', []) ->
   {ok, [{msg, "Design"}]}.
 
 %%
-%% 新建
+%% 新建 page
 %%
-new('GET', []) ->
-  case user_lib:require_login(Req) of
-    {redirect, _Url} -> {json, [{error, "Please login"}]};
-    {ok, _Author} ->
-      {ok, [{msg, "new"}]}
-  end.
 
 %%
-%% 写blog
+%% 新建blog api
 %%
 create('POST', []) ->
   case user_lib:require_login(Req) of
@@ -71,7 +63,7 @@ create('POST', []) ->
   end.
 
 %%
-%% 编辑
+%% 编辑 page
 %%
 edit('GET', [Id]) ->
   case user_lib:require_login(Req) of
@@ -81,9 +73,8 @@ edit('GET', [Id]) ->
       {ok, [{post, Post}]}
   end.
 
-
 %%
-%% 更新
+%% 更新 api
 %%
 update('PUT', [Id]) ->
   case user_lib:require_login(Req) of
@@ -118,7 +109,6 @@ update('PUT', [Id]) ->
       end
   end.
 
-
 %%
 %% 单篇博客
 %%
@@ -126,9 +116,8 @@ show('GET', [Id]) ->
   Post = boss_db:find(Id),
   {ok, [{post, Post}]}.
 
-
 %%
-%% 删除
+%% 删除 api
 %%
 delete('DELETE', [Id]) ->
 	case boss_db:delete(Id) of
@@ -137,7 +126,6 @@ delete('DELETE', [Id]) ->
 		{error, Reason}->
       {json, [{error, Reason}]}
 	end.
-
 
 %%
 %% 上传图片 api
