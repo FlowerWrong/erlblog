@@ -70,6 +70,10 @@ rebar compile
 init.sh reload
 ```
 
+### Deploy
+
+* [See chicagoboss deploy wiki with nginx](https://github.com/ChicagoBoss/ChicagoBoss/wiki/Deploy)
+
 ### Todo
 
 - [ ] Use react to rewrite tags input
