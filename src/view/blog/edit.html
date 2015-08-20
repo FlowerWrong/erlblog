@@ -21,10 +21,14 @@
 
       <fieldset class="fieldset-box tags">
         <label class="label-box">标签</label>
-        <input type="text" name="tags" class="input-box" id="tags" value="{{ post.tags }}">
+        <input type="text" name="tags" class="input-box" id="tags" value="
+        {% if post_tags %}
+          {% for pt in post_tags %}
+            {{ pt.tag.name }},
+          {% endfor %}
+        {% endif %}
+        ">
       </fieldset>
-
-      {{ post_tags }}
 
       <div class="editor-toolbar">
         <ul class="markdown-intro">

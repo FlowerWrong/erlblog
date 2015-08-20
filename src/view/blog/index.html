@@ -31,6 +31,14 @@
           </div>
           <div class="tags"></div>
         </div><!-- Meta -->
+
+        <!-- admin action -->
+        {% if current_user %}
+        <div class="del-post-box">
+          <a href="/posts/{{ p.id }}/delete" class="del-post">删除</a>
+          <a href="/posts/{{ p.id }}/edit" class="edit-post">编辑</a>
+        </div>
+        {% endif %}
       </article>
       {% endfor %}
 
@@ -46,4 +54,14 @@
     </div><!-- #content .site-content -->
   </div><!-- #primary .content-area -->
 </div><!-- / container-->
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/components/jquery/dist/jquery.js"></script>
+
+<!-- blockUI -->
+<script src="/static/components/blockUI/jquery.blockUI.js"></script>
+
+<script type="text/javascript" src="/static/components/fitvids/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/static/javascripts/theme.js"></script>
 {% endblock %}

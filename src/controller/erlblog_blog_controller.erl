@@ -7,7 +7,18 @@
 %%
 index('GET', []) ->
   Posts = boss_db:find(post, []),
-  {ok, [{posts, Posts}]}.
+  case Req:cookie("user_id") of
+    undefined -> {ok, [{posts, Posts}]};
+    Id ->
+      case boss_db:find(Id) of
+        undefined -> {ok, [{posts, Posts}]};
+        Author ->
+          case Author:session_identifier() =:= Req:cookie("session_id") of
+            false -> {ok, [{posts, Posts}]};
+            true -> {ok, [{posts, Posts}, {current_user, Author}]}
+          end
+      end
+  end.
 
 %%
 %% 关于我们 page
@@ -55,8 +66,13 @@ create('POST', []) ->
                 Tag = tag:new(id, TagName),
                 case Tag:save() of
                   {ok, SavedTag}->
-                    PostTag = post_tag:new(id, SavedTag:id(), PostId),
-                    PostTag:save();
+                    TagId = SavedTag:id(),
+                    case boss_db:find(post_tag, [{tag_id, 'equals', TagId}, {post_id, 'equals', PostId}]) of
+                      [] ->
+                        PostTag = post_tag:new(id, TagId, PostId),
+                        PostTag:save();
+                      [_DbPostTag] -> ok
+                    end;
                   {error, Reason}->
                     io:format("~p~n", [Reason])
                 end;
@@ -77,12 +93,9 @@ edit('GET', [Id]) ->
     {redirect, _Url} -> {json, [{error, "Please login"}]};
     {ok, _Author} ->
       Post = boss_db:find(Id),
+      % FIXME N+1 query
       PostTags = Post:post_tags(),
       io:format("~p~n", [PostTags]),
-      lists:foreach(fun(PostTag) ->
-        Tag = PostTag:tag(),
-        io:format("~p~n", [Tag])
-      end, PostTags),
       {ok, [{post, Post}, {post_tags, PostTags}]}
   end.
 
@@ -105,6 +118,10 @@ update('PUT', [Id]) ->
       UserId = Author:id(),
       AuthorId = list_to_integer(UserId -- "author-"),
 
+      % 标签
+      Tags = Req:post_param("tags"),
+      TagList = string:tokens(Tags, ","),
+
       NewPost = Post:set([
         {image, Image},
         {title, Title},
@@ -116,6 +133,26 @@ update('PUT', [Id]) ->
 
       case NewPost:save() of
         {ok, SavedPost}->
+          lists:foreach(fun(TagName) ->
+            case boss_db:find(tag, [{name, 'equals', TagName}]) of
+              [] ->
+                PostId = SavedPost:id(),
+                Tag = tag:new(id, TagName),
+                case Tag:save() of
+                  {ok, SavedTag}->
+                    TagId = SavedTag:id(),
+                    case boss_db:find(post_tag, [{tag_id, 'equals', TagId}, {post_id, 'equals', PostId}]) of
+                      [] ->
+                        PostTag = post_tag:new(id, TagId, PostId),
+                        PostTag:save();
+                      [_DbPostTag] -> ok
+                    end;
+                  {error, Reason}->
+                    io:format("~p~n", [Reason])
+                end;
+              [_DbTags] -> ok
+            end
+          end, TagList),
           {json, [{post, SavedPost}]};
         {error, Reason}->
           {json, [{error, Reason}]}
