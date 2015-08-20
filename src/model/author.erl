@@ -1,7 +1,8 @@
 -module(author, [Id, Username, Password, Avatar]).
 -compile(export_all).
 
-%% -has({posts, many}).
+-has({posts, many}).
+
 %%
 %% validation_tests() ->
 %%   [{fun() -> length(Username) > 0 end,

@@ -59,10 +59,10 @@ create('POST', []) ->
       NewPost = post:new(id, Image, Title, Summary, Content, Markdown, AuthorId),
       case NewPost:save() of
         {ok, SavedPost}->
+          PostId = SavedPost:id(),
           lists:foreach(fun(TagName) ->
             case boss_db:find(tag, [{name, 'equals', TagName}]) of
               [] ->
-                PostId = SavedPost:id(),
                 Tag = tag:new(id, TagName),
                 case Tag:save() of
                   {ok, SavedTag}->
@@ -76,7 +76,14 @@ create('POST', []) ->
                   {error, Reason}->
                     io:format("~p~n", [Reason])
                 end;
-              [_DbTags] -> ok
+              [DbTag] ->
+                TagId = DbTag:id(),
+                case boss_db:find(post_tag, [{tag_id, 'equals', TagId}, {post_id, 'equals', PostId}]) of
+                  [] ->
+                    PostTag = post_tag:new(id, TagId, PostId),
+                    PostTag:save();
+                  [_DbPostTag] -> ok
+                end
             end
           end, TagList),
           {json, [{post, SavedPost}]};
@@ -108,6 +115,13 @@ update('PUT', [Id]) ->
     {ok, Author} ->
       Post = boss_db:find(Id),
 
+      % 删除所有post tag的表间关系
+      % FIXME so ugly
+      PostTags = Post:post_tags(),
+      lists:foreach(fun(PostTag) ->
+        boss_db:delete(PostTag:id())
+      end, PostTags),
+
       Image = Req:post_param("image"),
       Title = Req:post_param("title"),
       Summary = Req:post_param("summary"),
@@ -133,10 +147,11 @@ update('PUT', [Id]) ->
 
       case NewPost:save() of
         {ok, SavedPost}->
+          PostId = SavedPost:id(),
           lists:foreach(fun(TagName) ->
+            % FIXME so ugly
             case boss_db:find(tag, [{name, 'equals', TagName}]) of
               [] ->
-                PostId = SavedPost:id(),
                 Tag = tag:new(id, TagName),
                 case Tag:save() of
                   {ok, SavedTag}->
@@ -150,7 +165,14 @@ update('PUT', [Id]) ->
                   {error, Reason}->
                     io:format("~p~n", [Reason])
                 end;
-              [_DbTags] -> ok
+              [DbTag] ->
+                TagId = DbTag:id(),
+                case boss_db:find(post_tag, [{tag_id, 'equals', TagId}, {post_id, 'equals', PostId}]) of
+                  [] ->
+                    PostTag = post_tag:new(id, TagId, PostId),
+                    PostTag:save();
+                  [_DbPostTag] -> ok
+                end
             end
           end, TagList),
           {json, [{post, SavedPost}]};

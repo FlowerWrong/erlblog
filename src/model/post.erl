@@ -3,8 +3,6 @@
 
 -has({post_tags, many}).
 
-%% -belongs_to(author).
-
 %% validation_tests() ->
 %%   [{fun() -> length(Title) > 0 end,
 %%     "请输入标题"},

@@ -40,6 +40,8 @@ CREATE TABLE posts (
   content TEXT NOT NULL,
   markdown TEXT DEFAULT NULL,
   author_id MEDIUMINT NOT NULL,
+  created_at datetime default NULL,
+  updated_at datetime default NULL,
   PRIMARY KEY (id),
   KEY `author_id` (`author_id`),
   CONSTRAINT `post_author_id` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`)
@@ -57,6 +59,8 @@ CREATE TABLE post_tags (
   id MEDIUMINT NOT NULL AUTO_INCREMENT,
   post_id MEDIUMINT NOT NULL,
   tag_id MEDIUMINT NOT NULL,
+  created_at datetime default NULL,
+  updated_at datetime default NULL,
   PRIMARY KEY (id),
   KEY `post_id` (`post_id`),
   CONSTRAINT `tag_post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
