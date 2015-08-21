@@ -102,7 +102,6 @@ edit('GET', [Id]) ->
       Post = boss_db:find(Id),
       % FIXME N+1 query
       PostTags = Post:post_tags(),
-      io:format("~p~n", [PostTags]),
       {ok, [{post, Post}, {post_tags, PostTags}]}
   end.
 
